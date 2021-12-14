@@ -2,6 +2,8 @@ import { UserForm } from "../UserForm/UserForm";
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { affairsActions } from "../../store/affairs";
+import { Header } from "./components/Header";
+import style from "./Table.module.css";
 
 export const Table = () => {
   const [value, setValue] = useState(null);
@@ -46,7 +48,8 @@ export const Table = () => {
   });
 
   return (
-    <div>
+    <div className={style._}>
+      <Header>ToDo List</Header>
       <UserForm
         onSubmit={handleInputSubmit}
         onChange={handleInputChange}

@@ -1,12 +1,13 @@
 import { Button } from "../Common/Button/Button";
 import { Input } from "../Common/Input/Input";
+import style from "./UserForm.module.css";
 
 export const UserForm = ({ onSubmit, onChange, onClick, value }) => {
   return (
-    <form onSubmit={onSubmit}>
+    <form className={style._} onSubmit={onSubmit}>
       <Input onChange={onChange} value={value} />
-      <Button onClick={onClick} type="submit">
-        Добавить
+      <Button small onClick={onClick}>
+        X
       </Button>
     </form>
   );

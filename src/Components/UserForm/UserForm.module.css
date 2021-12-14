@@ -1,0 +1,14 @@
+._ {
+  display: flex;
+  align-items: center;
+  border-radius: 0.5rem;
+  border: 0.125rem solid var(--main-color);
+  padding: 0.5rem 0.5rem 0.5rem 0;
+}
+
+._:focus-within,
+._:active {
+  outline: none;
+  border-color: var(--secondary-color);
+  box-shadow: 0 0 0.25rem var(--secondary-light-color);
+}

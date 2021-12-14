@@ -1,6 +1,16 @@
-export const Button = ({ children, type, onClick }) => {
+import style from "./Button.module.css";
+import cc from "classcat";
+
+export const Button = ({ children, onClick, small, round }) => {
+  const blockClass = cc([
+    style._,
+    {
+      [style.small]: small,
+      [style.round]: round,
+    },
+  ]);
   return (
-    <button type={type} onClick={onClick}>
+    <button onClick={onClick} className={blockClass}>
       {children}
     </button>
   );

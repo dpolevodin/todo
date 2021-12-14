@@ -1,0 +1,25 @@
+._ {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--light-color);
+  border: none;
+}
+
+.small {
+  width: 2rem;
+  height: 2rem;
+  background-color: transparent;
+}
+
+.small:focus,
+.small:active {
+  background-color: var(--secondary-light-color);
+}
+
+.round {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background-color: blueviolet;
+}
