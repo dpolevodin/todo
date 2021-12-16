@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 30rem;
+  width: 100%;
   height: 4rem;
   font-size: 2.25rem;
   padding: 0 0 0 1rem;
@@ -10,6 +10,7 @@
   border: none;
   font-family: "Caveat", cursive;
   line-height: 2rem;
+  box-sizing: border-box;
 }
 
 ._::placeholder {

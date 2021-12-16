@@ -12,6 +12,13 @@ export const affairsReducer = (state = initialState, action) => {
     case affairsActionTypes.DELETE_AFFAIR:
       return {
         ...state,
+        todo: state.todo.filter((item) => item !== action.payload),
+      };
+    case affairsActionTypes.CLEAR:
+      return initialState;
+    case affairsActionTypes.DONE_AFFAIR:
+      return {
+        ...state,
         todo: [...state.todo.filter((item) => item !== action.payload)],
         done: [...state.done, action.payload],
       };

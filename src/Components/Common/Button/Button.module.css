@@ -12,6 +12,11 @@
   border: 0.0125rem solid var(--secondary-light-color);
   color: var(--secondary-color);
   border-radius: 0.25rem;
+  margin-right: 0.5rem;
+}
+
+.primary:last-child {
+  margin: 0;
 }
 
 .primary:hover {
@@ -34,10 +39,19 @@
 }
 
 .round {
-  width: 2rem;
-  height: 2rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  padding: 0.25rem;
   border-radius: 50%;
-  background-color: blueviolet;
+  border: 0.0125rem solid var(--icon-color);
+}
+
+.round:hover {
+  border-color: var(--icon-hover);
+}
+
+.round:hover > svg {
+  stroke: var(--icon-hover);
 }
 
 .round:active {

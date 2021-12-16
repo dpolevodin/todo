@@ -18,13 +18,13 @@ export const Table = () => {
   const dispatch = useDispatch();
 
   const handleInputChange = (event) => {
-    const value = event.target.value;
+    const { value } = event.target;
     setValue(value);
   };
 
   const handleAffairClick = (event) => {
-    const value = event.target.innerHTML;
-    dispatch(affairsActions.deleteAffair(value));
+    const { innerHTML: value } = event.target;
+    dispatch(affairsActions.doneAffair(value));
   };
 
   const handleInputSubmit = (event) => {
@@ -43,25 +43,48 @@ export const Table = () => {
     SetIsShowDone(!isShowDone);
   };
 
+  const handleButtonClear = (event) => {
+    event.preventDefault();
+    dispatch(affairsActions.clear());
+  };
+
+  const handleButtonDelete = (event) => {
+    event.preventDefault();
+    const value = event.currentTarget.name;
+    console.log(value);
+    dispatch(affairsActions.deleteAffair(value));
+  };
   return (
-    <div className={style._}>
-      <Header>Список дел</Header>
-      <UserForm
-        onSubmit={handleInputSubmit}
-        onChange={handleInputChange}
-        value={value || ""}
-        onClick={handleInputClear}
-      />
-      <AffairsList affairs={affairs} onClick={handleAffairClick} />
-      {doneAffairs.length > 0 && (
+    <div className={style.wrapper}>
+      <div className={style._}>
+        <Header>Список дел</Header>
+        <UserForm
+          onSubmit={handleInputSubmit}
+          onChange={handleInputChange}
+          value={value || ""}
+          onClick={handleInputClear}
+        />
+        <AffairsList
+          affairs={affairs}
+          onClick={handleAffairClick}
+          onClickButton={handleButtonDelete}
+        />
         <div className={style.buttonWrapper}>
-          <Button primary onClick={handleButtonShowDone}>
-            {!isShowDone && "Показать выполненные"}
-            {isShowDone && "Скрыть выполненные"}
-          </Button>
+          {(affairs.length > 0 || doneAffairs.length > 0) && (
+            <Button primary onClick={handleButtonClear}>
+              Очистить все дела
+            </Button>
+          )}
+          {doneAffairs.length > 0 && (
+            <Button primary onClick={handleButtonShowDone}>
+              {!isShowDone && "Показать выполненные"}
+              {isShowDone && "Скрыть выполненные"}
+            </Button>
+          )}
         </div>
-      )}
-      {isShowDone && <DoneList doneAffairs={doneAffairs} />}
+
+        {isShowDone && <DoneList doneAffairs={doneAffairs} />}
+      </div>
     </div>
   );
 };

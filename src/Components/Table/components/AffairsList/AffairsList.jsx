@@ -1,11 +1,19 @@
 import style from "./AffairsList.module.css";
+import { Affair } from "../Affair/Affair";
 
-export const AffairsList = ({ affairs, onClick }) => {
-  return affairs.map((item, index) => {
+export const AffairsList = ({ affairs, onClick, onClickButton }) => {
+  const affairsData = affairs.map((item, index) => {
     return (
-      <div key={index} onClick={onClick} className={style._}>
+      <Affair
+        key={index}
+        onClick={onClick}
+        onClickButton={onClickButton}
+        toDo
+        name={item}
+      >
         {item}
-      </div>
+      </Affair>
     );
   });
+  return <div className={style._}>{affairsData}</div>;
 };
