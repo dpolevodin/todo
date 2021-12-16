@@ -1,0 +1,12 @@
+:root {
+  --main-color: #000;
+  --secondary-color: #1240ab;
+  --secondary-light-color: #1240abab;
+  --light-color: #fff;
+  --icon-color: rgb(100, 100, 100);
+  --icon-hover: #000;
+}
+
+body {
+  font-family: "Caveat", cursive;
+}

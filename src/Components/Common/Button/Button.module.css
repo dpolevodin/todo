@@ -4,6 +4,7 @@
   align-items: center;
   background-color: var(--light-color);
   border: none;
+  cursor: pointer;
 }
 
 .small {
@@ -12,9 +13,8 @@
   background-color: transparent;
 }
 
-.small:focus,
 .small:active {
-  background-color: var(--secondary-light-color);
+  border: 0.1rem solid var(--light-color);
 }
 
 .round {
@@ -22,4 +22,8 @@
   height: 2rem;
   border-radius: 50%;
   background-color: blueviolet;
+}
+
+.round:active {
+  border: 0.1rem solid var(--light-color);
 }

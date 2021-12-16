@@ -6,7 +6,7 @@ export const Input = ({ onChange, value, children }) => {
       className={style._}
       onChange={onChange}
       value={value}
-      placeholder="Add to do"
+      placeholder="Добавить в список дел"
     >
       {children}
     </input>

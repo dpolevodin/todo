@@ -1,0 +1,11 @@
+._ {
+  width: 2rem;
+  height: 2rem;
+  fill: var(--icon-color);
+  stroke: var(--icon-color);
+}
+
+._:hover {
+  fill: var(--icon-hover);
+  stroke: var(--icon-hover);
+}

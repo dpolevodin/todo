@@ -28,6 +28,11 @@ export const Table = () => {
     setValue(null);
   };
 
+  const handleInputClear = (event) => {
+    event.preventDefault();
+    setValue(null);
+  };
+
   const doneList = doneAffairs.map((item, index) => {
     return (
       <div
@@ -49,11 +54,12 @@ export const Table = () => {
 
   return (
     <div className={style._}>
-      <Header>ToDo List</Header>
+      <Header>Список дел</Header>
       <UserForm
         onSubmit={handleInputSubmit}
         onChange={handleInputChange}
         value={value || ""}
+        onClick={handleInputClear}
       />
       <div style={{ padding: "1rem" }}>Надо сделать:</div>
       {affairsList}
