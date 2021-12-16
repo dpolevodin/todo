@@ -2,16 +2,19 @@ import { UserForm } from "../UserForm/UserForm";
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { affairsActions } from "../../store/affairs";
-import { Header } from "./components/Header";
+import { Header } from "./components/Header/Header";
 import style from "./Table.module.css";
 import { Button } from "../Common/Button/Button";
+import { AffairsList } from "./components/AffairsList/AffairsList";
+import { DoneList } from "./components/DoneList/DoneList";
+import { selectors } from "../../store/selectors/index";
 
 export const Table = () => {
   const [value, setValue] = useState(null);
   const [isShowDone, SetIsShowDone] = useState(false);
 
-  const affairs = useSelector((state) => state.affairs.todo);
-  const doneAffairs = useSelector((state) => state.affairs.done);
+  const affairs = useSelector(selectors.getAffairs);
+  const doneAffairs = useSelector(selectors.getDoneAffairs);
   const dispatch = useDispatch();
 
   const handleInputChange = (event) => {
@@ -40,25 +43,6 @@ export const Table = () => {
     SetIsShowDone(!isShowDone);
   };
 
-  const doneList = doneAffairs.map((item, index) => {
-    return (
-      <div
-        style={{ color: "gray", textDecoration: "line-through" }}
-        key={index}
-      >
-        {item}
-      </div>
-    );
-  });
-
-  const affairsList = affairs.map((item, index) => {
-    return (
-      <div key={index} onClick={handleAffairClick}>
-        {item}
-      </div>
-    );
-  });
-
   return (
     <div className={style._}>
       <Header>Список дел</Header>
@@ -68,7 +52,7 @@ export const Table = () => {
         value={value || ""}
         onClick={handleInputClear}
       />
-      {affairsList}
+      <AffairsList affairs={affairs} onClick={handleAffairClick} />
       {doneAffairs.length > 0 && (
         <div className={style.buttonWrapper}>
           <Button primary onClick={handleButtonShowDone}>
@@ -77,7 +61,7 @@ export const Table = () => {
           </Button>
         </div>
       )}
-      {isShowDone && doneList}
+      {isShowDone && <DoneList doneAffairs={doneAffairs} />}
     </div>
   );
 };

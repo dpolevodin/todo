@@ -1,13 +1,22 @@
 ._ {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 30rem;
   height: 4rem;
-  font-size: 1.25rem;
+  font-size: 2.25rem;
   padding: 0 0 0 1rem;
   border-radius: 0.5rem;
   border: none;
   font-family: "Caveat", cursive;
+  line-height: 2rem;
 }
 
+._::placeholder {
+  transform: translate3d(0, -0.25rem, 0);
+  font-size: 1.25rem;
+  align-items: center;
+}
 ._:focus,
 ._:active {
   outline: none;

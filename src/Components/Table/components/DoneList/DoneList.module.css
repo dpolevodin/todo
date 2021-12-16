@@ -1,0 +1,9 @@
+._ {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 33.75rem;
+  color: var(--icon-color);
+  text-decoration: line-through;
+}
