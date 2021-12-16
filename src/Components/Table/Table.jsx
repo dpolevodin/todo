@@ -4,9 +4,11 @@ import { useSelector, useDispatch } from "react-redux";
 import { affairsActions } from "../../store/affairs";
 import { Header } from "./components/Header";
 import style from "./Table.module.css";
+import { Button } from "../Common/Button/Button";
 
 export const Table = () => {
   const [value, setValue] = useState(null);
+  const [isShowDone, SetIsShowDone] = useState(false);
 
   const affairs = useSelector((state) => state.affairs.todo);
   const doneAffairs = useSelector((state) => state.affairs.done);
@@ -31,6 +33,11 @@ export const Table = () => {
   const handleInputClear = (event) => {
     event.preventDefault();
     setValue(null);
+  };
+
+  const handleButtonShowDone = (event) => {
+    event.preventDefault();
+    SetIsShowDone(!isShowDone);
   };
 
   const doneList = doneAffairs.map((item, index) => {
@@ -61,10 +68,16 @@ export const Table = () => {
         value={value || ""}
         onClick={handleInputClear}
       />
-      <div style={{ padding: "1rem" }}>Надо сделать:</div>
       {affairsList}
-      <div style={{ padding: "1rem" }}>Сделано:</div>
-      {doneList}
+      {doneAffairs.length > 0 && (
+        <div className={style.buttonWrapper}>
+          <Button primary onClick={handleButtonShowDone}>
+            {!isShowDone && "Показать выполненные"}
+            {isShowDone && "Скрыть выполненные"}
+          </Button>
+        </div>
+      )}
+      {isShowDone && doneList}
     </div>
   );
 };

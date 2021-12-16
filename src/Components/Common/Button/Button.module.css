@@ -2,9 +2,25 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 0.25rem 0.5rem;
   background-color: var(--light-color);
   border: none;
   cursor: pointer;
+}
+
+.primary {
+  border: 0.0125rem solid var(--secondary-light-color);
+  color: var(--secondary-color);
+  border-radius: 0.25rem;
+}
+
+.primary:hover {
+  color: var(--light-color);
+  background-color: var(--secondary-light-color);
+}
+
+.primary:active {
+  border: 0.1rem solid var(--light-color);
 }
 
 .small {
