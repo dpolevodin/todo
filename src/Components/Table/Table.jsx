@@ -9,7 +9,7 @@ import { AffairsList } from "./components/AffairsList/AffairsList";
 import { DoneList } from "./components/DoneList/DoneList";
 import { selectors } from "../../store/selectors/index";
 import { ThemeButton } from "./components/ThemeButton/ThemeButton";
-import { setTheme } from "../../store/setTheme";
+import { setTheme } from "../../helpers/setTheme";
 
 const STORAGE_MAP = {
   false: false,
