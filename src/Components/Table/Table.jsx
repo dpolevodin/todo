@@ -8,10 +8,29 @@ import { Button } from "../Common/Button/Button";
 import { AffairsList } from "./components/AffairsList/AffairsList";
 import { DoneList } from "./components/DoneList/DoneList";
 import { selectors } from "../../store/selectors/index";
+import { ThemeButton } from "./components/ThemeButton/ThemeButton";
+import { setTheme } from "../../store/setTheme";
+
+const STORAGE_MAP = {
+  false: false,
+  true: true,
+};
 
 export const Table = () => {
+  const getCurrentTheme = () => {
+    const storage = window.localStorage;
+    if (!!storage.DarkTheme) {
+      return STORAGE_MAP[storage.DarkTheme];
+    } else {
+      return false;
+    }
+  };
+
   const [value, setValue] = useState(null);
   const [isShowDone, SetIsShowDone] = useState(false);
+  const [isDarkTheme, setIsDarkTheme] = useState(getCurrentTheme());
+
+  setTheme(isDarkTheme);
 
   const affairs = useSelector(selectors.getAffairs);
   const doneAffairs = useSelector(selectors.getDoneAffairs);
@@ -54,10 +73,29 @@ export const Table = () => {
     console.log(value);
     dispatch(affairsActions.deleteAffair(value));
   };
+
+  const handleClickChangeTheme = (event) => {
+    event.preventDefault();
+    const storage = window.localStorage;
+    const darkTheme =
+      storage.DarkTheme === undefined || storage.DarkTheme === "false"
+        ? true
+        : false;
+    storage.setItem("DarkTheme", darkTheme);
+    setIsDarkTheme(STORAGE_MAP[window.localStorage.DarkTheme]);
+    console.log(window.localStorage);
+  };
+
   return (
     <div className={style.wrapper}>
       <div className={style._}>
         <Header>Список дел</Header>
+
+        <ThemeButton
+          isDarkTheme={isDarkTheme}
+          onClick={handleClickChangeTheme}
+        />
+
         <UserForm
           onSubmit={handleInputSubmit}
           onChange={handleInputChange}

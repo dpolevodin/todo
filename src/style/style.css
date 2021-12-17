@@ -3,10 +3,24 @@
   --secondary-color: #1240ab;
   --secondary-light-color: #1240abab;
   --light-color: #fff;
-  --icon-color: rgb(151, 151, 151);
-  --icon-hover: #000;
+  --icon-color: #979797;
+  --icon-hover: #5f5e5e;
+  --button-text: #fff;
+  --text-color: #000;
 }
 
 body {
   font-family: "Caveat", cursive;
+  background-color: var(--light-color);
+}
+
+.dark {
+  --main-color: #000;
+  --secondary-color: #4172e4;
+  --secondary-light-color: #184fd1ab;
+  --light-color: #000;
+  --icon-color: #979797;
+  --icon-hover: #5f5e5e;
+  --text-color: #fff;
+  --button-text: #fff;
 }

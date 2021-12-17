@@ -10,7 +10,9 @@
   border: none;
   font-family: "Caveat", cursive;
   line-height: 2rem;
+  background-color: var(--light-color);
   box-sizing: border-box;
+  color: var(--text-color);
 }
 
 ._::placeholder {

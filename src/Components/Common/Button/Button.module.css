@@ -20,12 +20,13 @@
 }
 
 .primary:hover {
-  color: var(--light-color);
+  color: var(--button-text);
   background-color: var(--secondary-light-color);
 }
 
 .primary:active {
-  border: 0.1rem solid var(--light-color);
+  border: 0.1rem solid var(--text-color);
+  color: var(--button-text);
 }
 
 .small {
