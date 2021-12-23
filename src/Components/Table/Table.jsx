@@ -89,7 +89,7 @@ export const Table = () => {
   return (
     <div className={style.wrapper}>
       <div className={style._}>
-        <Header>Список дел</Header>
+        <Header>ToDo</Header>
 
         <ThemeButton
           isDarkTheme={isDarkTheme}
